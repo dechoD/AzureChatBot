@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Threading.Tasks;
+using System.Threading;
 using Microsoft.Bot.Builder.Dialogs;
 using Microsoft.Bot.Connector;
-using System.Threading;
 
 namespace IrisBot.Dialogs
 {
