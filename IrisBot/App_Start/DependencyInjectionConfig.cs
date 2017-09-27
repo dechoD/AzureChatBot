@@ -5,6 +5,7 @@ using System.Web.Http;
 using Autofac;
 using Autofac.Integration.WebApi;
 using IrisBot.Constants;
+using Microsoft.Bot.Builder.Dialogs;
 
 namespace IrisBot.App_Start
 {
@@ -18,13 +19,13 @@ namespace IrisBot.App_Start
             builder.RegisterApiControllers(Assembly.GetExecutingAssembly());
             builder.RegisterWebApiFilterProvider(globalConfig);
             builder.RegisterWebApiModelBinderProvider();
-            RegisterServices(builder, new[] { Assemblies.Services });
+            RegisterDefaultServices(builder, new[] { Assemblies.Services });
 
             var container = builder.Build();
             config.DependencyResolver = new AutofacWebApiDependencyResolver(container);
         }
-
-        private static void RegisterServices(ContainerBuilder builder, IEnumerable<string> assemblyNames)
+        
+        private static void RegisterDefaultServices(ContainerBuilder builder, IEnumerable<string> assemblyNames)
         {
             foreach (var name in assemblyNames)
             {

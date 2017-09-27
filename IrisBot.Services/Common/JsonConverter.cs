@@ -1,8 +1,10 @@
-﻿using IrisBot.Services.Interfaces.Common;
+﻿using System;
+using IrisBot.Services.Interfaces.Common;
 using Newtonsoft.Json;
 
 namespace IrisBot.Services.Common
 {
+    [Serializable]
     public class JsonConverter : IJsonConverter
     {
         /// <summary>
